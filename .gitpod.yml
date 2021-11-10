@@ -2,13 +2,18 @@ image: gitpod/workspace-dotnet
 
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - name: Terminal 1
-    init: echo 'init script' # runs during prebuild
-    command: echo 'start script'
-  - name: dotnet
-    init: dotnet build
+  - name: Postinstall dotnet LTS, dev certificates, and restore packages
+    init: |
+      mkdir -p /workspace/.dotnet && curl -fsSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel lts --install-dir /workspace/.dotnet
+      dotnet dev-certs https 
+      dotnet restore
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
-  - port: 3000
+  - port: 32244
     onOpen: open-preview
+
+# Add vscode extensions
+vscode:
+  extensions:
+    - muhammad-sammy.csharp

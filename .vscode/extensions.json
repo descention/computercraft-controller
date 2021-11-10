@@ -2,6 +2,7 @@
     "recommendations": [
         "formulahendry.dotnet-test-explorer",
         "ms-dotnettools.csharp",
-        "lemmmy.computercraft-extension-pack"
+        "lemmmy.computercraft-extension-pack",
+        "muhammad-sammy.csharp"
     ]
 }
